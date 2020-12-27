@@ -117,6 +117,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 intent.putParcelableArrayListExtra(HISTORY_KEY,history);
                 startActivity(intent);
                 break;
+            case R.id.service_item:
+                intent = new Intent(this, ServiceActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.browser_call_item:
+                intent = new Intent(this, BrowserCallActivity.class);
+                startActivity(intent);
+                break;
         }
         return super.onOptionsItemSelected(item);
     }

@@ -3,4 +3,10 @@
     <item
         android:id="@+id/open_history_item"
         android:title="open_history" />
+    <item
+        android:id="@+id/service_item"
+        android:title="open_service_activity" />
+    <item
+        android:id="@+id/browser_call_item"
+        android:title="open_browser_call_activity"  />
 </menu>

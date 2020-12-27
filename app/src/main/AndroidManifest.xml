@@ -18,7 +18,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <activity android:name=".BrowserCallActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".ServiceActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".IntentCatcher"
+            android:parentActivityName=".MainActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="text/plain"/>
+            </intent-filter>
+        </activity>
+        <service
+            android:name=".CounterService"
+            android:enabled="true"
+            android:exported="true" />
     </application>
 
 </manifest>
