@@ -9,4 +9,13 @@
     <item
         android:id="@+id/browser_call_item"
         android:title="open_browser_call_activity"  />
+    <item
+        android:id="@+id/db_item"
+        android:title="open_db_activity" />
+    <item
+        android:id="@+id/file_item"
+        android:title="open_file_activity" />
+    <item
+        android:id="@+id/shared_pref_item"
+        android:title="open_shared_pref_activity" />
 </menu>

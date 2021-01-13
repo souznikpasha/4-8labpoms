@@ -12,4 +12,20 @@
     <string name="service_stopped">Service stopped</string>
     <string name="counted_to">Counted to %d</string>
     <string name="service_started">Service started</string>
+    <string name="log_file_name" translatable="false">FileLog.txt</string>
+    <string name="show_db_content">Show database content</string>
+    <string name="clear_db_content">Clear database content</string>
+    <string name="clear_screen">Clear screen</string>
+    <string name="pref_color_key_switch" translatable="false">pref_color_switch</string>
+    <string name="pref_color_switch">Override color?</string>
+    <string name="pref_color_switch_summ">Use non-default color from list below?</string>
+    <string name="pref_color_key" translatable="false">pref_color</string>
+
+    <string name="pref_color_title">Choose color</string>
+    <string name="pref_color_red">Red</string>
+    <array name="pref_colors">
+        <item>Blue</item>
+        <item>Green</item>
+        <item>Red</item>
+    </array>
 </resources>

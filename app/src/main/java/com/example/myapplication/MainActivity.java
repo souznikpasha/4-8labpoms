@@ -1,18 +1,21 @@
 package com.example.myapplication;
 
 
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
+import android.app.Fragment;
 import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.EditText;
+import android.widget.FrameLayout;
+import android.widget.TextView;
 import android.widget.Toast;
-import android.app.Activity;
 
 import java.text.BreakIterator;
 import java.util.ArrayList;
@@ -99,6 +102,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String operand2String = String.format("%s",number2);
         String resultString = String.format("%s",result);
         history.add(new HistoryItem(operand1String, operand2String, oper, resultString));
+        DatabaseManager databaseManager = new DatabaseManager(this);
+        databaseManager.open();
+        databaseManager.insert(new HistoryItem(operand1String, operand2String, oper, resultString));
+        databaseManager.close();
     }
 
 
@@ -123,6 +130,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.browser_call_item:
                 intent = new Intent(this, BrowserCallActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.file_item:
+                intent = new Intent(this, FileActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.db_item:
+                intent = new Intent(this, DBActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.shared_pref_item:
+                intent = new Intent(this, SharedPreferencesActivity.class);
                 startActivity(intent);
                 break;
         }

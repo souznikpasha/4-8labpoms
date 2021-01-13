@@ -16,6 +16,21 @@ public class HistoryItem implements Parcelable {
         this.function = function;
         this.result = result;
     }
+    public String getOperand1() {
+        return operand1;
+    }
+
+    public String getOperand2() {
+        return operand2;
+    }
+
+    public String getFunction() {
+        return function;
+    }
+
+    public String getResult() {
+        return result;
+    }
 
     public HistoryItem(String operand1, String function, String result){
         this.operand1 = operand1;

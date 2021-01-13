@@ -9,12 +9,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".HistoryListActivity"></activity>
+        <activity android:name=".SharedPreferencesActivity"
+            android:parentActivityName=".MainActivity"/>
+        <activity
+            android:name=".FileActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".DBActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".HistoryListActivity"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -35,5 +48,8 @@
             android:enabled="true"
             android:exported="true" />
     </application>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
 </manifest>

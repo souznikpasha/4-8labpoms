@@ -2,11 +2,18 @@ package com.example.myapplication;
 
 import android.app.PendingIntent;
 import android.content.Intent;
-import android.os.Bundle;
+import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.widget.Button;
 import android.widget.Toast;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class ServiceActivity extends AppCompatActivity {
 
@@ -53,7 +60,9 @@ public class ServiceActivity extends AppCompatActivity {
                     break;
                 case COUNTER_ANSWER:
                     int counter = data.getIntExtra(COUNTER_ANSWER_KEY, 0);
-                    Toast.makeText(this, getResources().getString(R.string.counted_to, counter), Toast.LENGTH_SHORT).show();
+                    String message = getResources().getString(R.string.counted_to, counter);
+                    Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+                    writeToFile(message);
                     break;
                 case COUNTER_FINISH:
                     Toast.makeText(this, getResources().getString(R.string.service_stopped), Toast.LENGTH_SHORT).show();
@@ -61,5 +70,17 @@ public class ServiceActivity extends AppCompatActivity {
             }
         }
         super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    private void writeToFile(String message) {
+        File downloadsDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
+        File myFile = new File(downloadsDir, getString(R.string.log_file_name));
+        try {
+            FileWriter out = new FileWriter(myFile, true);
+            out.write(message+"\n");
+            out.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

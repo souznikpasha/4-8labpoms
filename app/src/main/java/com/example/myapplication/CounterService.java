@@ -51,15 +51,10 @@ public class CounterService extends Service {
             talkToCreator(new Intent(), ServiceActivity.COUNTER_START);
 
             exit = false;
-            //int[] arr= new int[10];
-            //rr[0] = 0;
-            //arr[1] = 1;
+
             final int VERY_MUCH = 100000;
             for(int i=0;i<VERY_MUCH && !exit;i++){
-//                if(i>=2)
-//                {
-//                    arr[i] = arr[i-1]+arr[i-2];
-//                }
+
                 talkToCreator(new Intent().putExtra(ServiceActivity.COUNTER_ANSWER_KEY, i),
                         ServiceActivity.COUNTER_ANSWER);
 
