@@ -1,8 +1,10 @@
-package com.example.myapplication;
+package com.example.myapplication.view;
 
 
 import android.os.Bundle;
 import android.preference.PreferenceFragment;
+
+import com.example.myapplication.R;
 
 
 public class SharedPreferencesFragment extends PreferenceFragment {

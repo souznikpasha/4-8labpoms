@@ -1,9 +1,11 @@
-package com.example.myapplication;
+package com.example.myapplication.viewmodel;
 
 import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
+
+import  com.example.myapplication.view.ServiceActivity;
 
 import static java.lang.Thread.sleep;
 
@@ -37,7 +39,7 @@ public class CounterService extends Service {
     }
 
 
-    private class MyTask implements Runnable {
+    private class MyTask implements Runnable{
 
         private boolean exit;
         private PendingIntent pendingIntent;
@@ -59,7 +61,7 @@ public class CounterService extends Service {
                         ServiceActivity.COUNTER_ANSWER);
 
                 try{
-                    sleep(2000);
+                    sleep(4000);
                 } catch (InterruptedException e){
                     e.printStackTrace();
                     break;

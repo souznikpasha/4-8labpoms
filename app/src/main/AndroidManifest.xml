@@ -9,19 +9,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SharedPreferencesActivity"
-            android:parentActivityName=".MainActivity"/>
+        <activity android:name=".view.SharedPreferencesActivity"
+            android:parentActivityName=".view.MainActivity"/>
         <activity
-            android:name=".FileActivity"
-            android:parentActivityName=".MainActivity" />
+            android:name=".view.FileActivity"
+            android:parentActivityName=".view.MainActivity" />
         <activity
-            android:name=".DBActivity"
-            android:parentActivityName=".MainActivity" />
+            android:name=".view.DBActivity"
+            android:parentActivityName=".view.MainActivity" />
         <activity
-            android:name=".HistoryListActivity"
-            android:parentActivityName=".MainActivity" />
+            android:name=".view.HistoryListActivity"
+            android:parentActivityName=".view.MainActivity" />
         <activity
-            android:name=".MainActivity">
+            android:name=".view.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -31,20 +31,24 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".BrowserCallActivity"
-            android:parentActivityName=".MainActivity" />
-        <activity android:name=".ServiceActivity"
-            android:parentActivityName=".MainActivity" />
-        <activity android:name=".IntentCatcher"
-            android:parentActivityName=".MainActivity" >
+        <activity
+            android:name=".view.BrowserCallActivity"
+            android:parentActivityName=".view.MainActivity" />
+        <activity android:name=".view.ServiceActivity"
+            android:parentActivityName=".view.MainActivity" />
+        <activity
+            android:name=".view.IntentCatcher"
+            android:parentActivityName=".view.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.SEND" />
+
                 <category android:name="android.intent.category.DEFAULT" />
-                <data android:mimeType="text/plain"/>
+
+                <data android:mimeType="text/plain" />
             </intent-filter>
         </activity>
         <service
-            android:name=".CounterService"
+            android:name=".viewmodel.CounterService"
             android:enabled="true"
             android:exported="true" />
     </application>

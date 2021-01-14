@@ -1,17 +1,18 @@
-package com.example.myapplication;
+package com.example.myapplication.view;
 
 import android.app.PendingIntent;
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.myapplication.R;
+import com.example.myapplication.viewmodel.CounterService;
+
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 

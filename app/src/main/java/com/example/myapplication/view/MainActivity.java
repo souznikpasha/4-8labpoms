@@ -1,23 +1,22 @@
-package com.example.myapplication;
+package com.example.myapplication.view;
 
 
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
-import android.app.Fragment;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.text.BreakIterator;
+import com.example.myapplication.R;
+import com.example.myapplication.model.HistoryEntry;
+import com.example.myapplication.viewmodel.HistoryFacade;
+
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
@@ -101,14 +100,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String operand1String = String.format("%s",number1);
         String operand2String = String.format("%s",number2);
         String resultString = String.format("%s",result);
-        history.add(new HistoryItem(operand1String, operand2String, oper, resultString));
-        DatabaseManager databaseManager = new DatabaseManager(this);
-        databaseManager.open();
-        databaseManager.insert(new HistoryItem(operand1String, operand2String, oper, resultString));
-        databaseManager.close();
+        addToHistory(new HistoryEntry(operand1String, operand2String, oper, resultString));
+//        history.add(new HistoryItem(operand1String, operand2String, oper, resultString));
+//        DatabaseManager databaseManager = new DatabaseManager(this);
+//        databaseManager.open();
+//        databaseManager.insert(new HistoryItem(operand1String, operand2String, oper, resultString));
+//        databaseManager.close();
     }
 
-
+    public void addToHistory(HistoryEntry newItem){
+        HistoryFacade.addItem(getBaseContext(), newItem);
+    }
 
         @Override
         public boolean onCreateOptionsMenu(Menu menu) {
@@ -118,10 +120,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         @Override
         public boolean onOptionsItemSelected(MenuItem item) {
+            Intent intent;
         switch (item.getItemId()){
             case R.id.open_history_item:
-                Intent intent = new Intent(this, HistoryListActivity.class);
-                intent.putParcelableArrayListExtra(HISTORY_KEY,history);
+                intent = new Intent(this, HistoryListActivity.class);
+                intent.putParcelableArrayListExtra(HISTORY_KEY, new ArrayList<>(HistoryFacade.getAllAsList(getBaseContext())));
                 startActivity(intent);
                 break;
             case R.id.service_item:

@@ -1,32 +1,20 @@
-package com.example.myapplication;
+package com.example.myapplication.viewmodel;
 
-import android.os.Bundle;
 import android.os.Environment;
-import android.support.v7.app.AppCompatActivity;
-import android.widget.Button;
-import android.widget.TextView;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 
-public class FileActivity extends AppCompatActivity {
-    TextView fileContent;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_file);
 
-        Button fileButton = findViewById(R.id.show_file_button);
-        fileButton.setOnClickListener(v -> loadFileContents());
-        fileContent = findViewById(R.id.file_textView);
-    }
-
-    private void loadFileContents() {
-        String rezult;
+public class FileProcessor {
+    public static String loadFileContent(String fileName) {
+        String rezult = "";
         StringBuilder stringBuilder = new StringBuilder();
         File downloadsDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
-        File myFile = new File(downloadsDir, getString(R.string.log_file_name));
+        File myFile = new File(downloadsDir, fileName);
         try {
             BufferedReader reader = new BufferedReader(new FileReader(myFile));
 
@@ -43,6 +31,17 @@ public class FileActivity extends AppCompatActivity {
         }
 
         rezult = stringBuilder.toString();
-        fileContent.setText(rezult);
+        return rezult;
+    }
+    public static void saveToFile(String fileName, String message){
+        File downloadsDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
+        File myFile = new File(downloadsDir, fileName);
+        try {
+            FileWriter out = new FileWriter(myFile, true);
+            out.write(message+"\n");
+            out.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

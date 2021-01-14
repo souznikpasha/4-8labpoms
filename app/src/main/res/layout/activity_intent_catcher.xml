@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".IntentCatcher">
+    tools:context=".view1.IntentCatcher">
 
     <TextView
         android:id="@+id/shared_link_text"
