@@ -18,4 +18,7 @@
     <item
         android:id="@+id/shared_pref_item"
         android:title="open_shared_pref_activity" />
+    <item
+        android:id="@+id/graphic_item"
+        android:title="@string/open_graphic_activity" />
 </menu>

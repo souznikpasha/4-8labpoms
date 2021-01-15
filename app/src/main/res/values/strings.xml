@@ -28,4 +28,9 @@
         <item>Green</item>
         <item>Red</item>
     </array>
+    <string name="scale">Scale</string>
+    <string name="rotate">Rotate</string>
+    <string name="move">Move</string>
+    <string name="alpha">Alpha</string>
+    <string name="open_graphic_activity">Open graphic activity</string>
 </resources>

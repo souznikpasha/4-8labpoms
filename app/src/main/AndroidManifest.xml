@@ -35,6 +35,8 @@
             android:name=".view.BrowserCallActivity"
             android:parentActivityName=".view.MainActivity" />
         <activity android:name=".view.ServiceActivity"
+        android:parentActivityName=".view.MainActivity" />
+        <activity android:name=".view.GraphicActivity"
             android:parentActivityName=".view.MainActivity" />
         <activity
             android:name=".view.IntentCatcher"

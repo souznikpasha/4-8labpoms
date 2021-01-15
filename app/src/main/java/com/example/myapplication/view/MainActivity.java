@@ -147,6 +147,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 intent = new Intent(this, SharedPreferencesActivity.class);
                 startActivity(intent);
                 break;
+            case R.id.graphic_item:
+                intent = new Intent(this, GraphicActivity.class);
+                startActivity(intent);
+                break;
         }
         return super.onOptionsItemSelected(item);
     }
